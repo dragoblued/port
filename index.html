@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link  rel="stylesheet" href="styles/index.css"/>
+</head>
+<body>
+    <div class="home">
+        <header>
+            <img src="./assets/img/icon-p.svg" alt="">
+            <a href="#home">Домашняя</a>
+            <a href="#about">Обо мне</a>
+            <a href="#portfolio">Портфолио</a>
+            <a href="#contacts">Контакты</a>
+        </header>
+        <div class="user" id="home">
+            <div class="user__text">
+                <h2>Здраствуйте,</h2>
+                <h3>Меня зовут Наталья</h3>
+                <p>Занимаюсь веб-разработкой. Если вам нужна верстка сайта, натянуть верску на вордпресс или задеплоить проект, свяжитесь со мной.</p>
+                <a class="button">Связаться со мной</a>
+            </div>
+            <div class="user__img">
+                <img src="./assets/img/avatar.svg" alt="" width="500px">
+                <div class="circle circle1">php</div>
+                <div class="circle circle2">js</div>
+                <div class="circle circle3">css</div>
+            </div>
+        </div>
+    </div>
+    <div class="about" id="about">
+        <div class="stack">
+            <div class="stack__item">
+                <img src="./assets/img/sd.svg" alt="" width="75px">
+                <p>Back-end</p>
+            </div>
+            <div class="stack__item">
+                <img src="./assets/img/comp.svg" alt="" width="75px">
+                <p>Front-end</p>
+            </div>
+        </div>
+        <div style="position: relative;
+        width: fit-content;
+        margin: 0 auto;">
+            <div class="about__text">
+                <h2>обо мне</h2>
+                <p>
+                    Закончила технический университет.<br/> Разработкой занимаюсь уже около 3-х лет.<br/>
+                    Стэк-технологий: wordpress, laravel, js, react, ubuntu, sql.
+                </p>
+            </div>
+            <img src="./assets/img/elipse.svg" alt="" class="ellipe">
+        </div>
+    </div>
+    <div class="portfolio" id="portfolio">
+        <h2>Портфолио</h2>
+        <div class="slider">
+            <div>
+                <a class="block-slider" href="./pages/med/index.html">
+                    <img src="./assets/img/med.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a class="block-slider" href="https://deepbreath.tech/">
+                    <img src="./assets/img/deep.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a class="block-slider" href="http://dragoblued.beget.tech/">
+                    <img src="./assets/img/weather.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a class="block-slider" href="https://acruxcs.com/en/nlp/creativity-test">
+                    <img src="./assets/img/creatimeter.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="contact" id="contacts">
+            <p>Контакты:</p>
+            <p>email: dragoblued@yadnex.ru</p>
+            <p>telegram: @ligia_graecina</p>
+        </div>
+        <div class="contact">
+            <img src="./assets/img/icon-p.svg" alt="">
+            <p>Copyright © 2022</p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $('.slider').slick({
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+          });
+        });
+        (function() {
+            const linkNav = document.querySelectorAll('[href^="#"]');
+            let V = 0.1;
+            for (let i = 0; i < linkNav.length; i++) {
+                linkNav[i].addEventListener('click', function(e) { 
+                    e.preventDefault();
+                    const w = window.pageYOffset;
+                    let hash = this.href.replace(/[^#]*(.*)/, '$1');
+                    let t = document.querySelector(hash).getBoundingClientRect().top;
+                    let start = null;
+                    requestAnimationFrame(step);
+                    function step(time) {
+                        if (start === null) start = time;
+                        let progress = time - start,
+                            r = (t < 0 ? Math.max(w - progress/V, w + t) : Math.min(w + progress/V, w + t));
+                        window.scrollTo(0,r);
+                        if (r != w + t) {
+                            requestAnimationFrame(step)
+                        } else {
+                            location.hash = hash
+                        }
+                    }
+                }, false);
+            }    
+        })();
+     </script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+@charset "UTF-8";
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Arodora Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arodora Pro"), url("../assets/fonts/ArodoraPro-Light.otf") format("opentype");
+}
+a {
+  text-decoration: none;
+}
+
+.home {
+  background-color: #2A2A2A;
+}
+.home .user {
+  display: flex;
+  margin: 0 auto;
+  padding-bottom: 100px;
+  align-items: center;
+  justify-content: center;
+  /* text */
+  color: #E4E4E4;
+}
+.home .user__text {
+  display: flex;
+  flex-direction: column;
+  max-width: 447px;
+  font-family: "Arodora Pro";
+  font-style: normal;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-start;
+}
+.home .user__text h3 {
+  width: 100%;
+  font-size: 35px;
+  line-height: 82px;
+  text-align: left;
+}
+.home .user__text h2 {
+  width: 100%;
+  font-size: 48px;
+  line-height: 54px;
+  margin: 27p 0px;
+  text-align: left;
+}
+.home .user__text p {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  margin-bottom: 27px;
+  text-align: left;
+}
+.home .user__text .button {
+  max-width: 200px;
+  font-family: "Arodora Pro";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  background: linear-gradient(87.32deg, #E2A300 4.47%, #E29500 95.53%);
+  box-shadow: 0px 2px 13px rgba(226, 158, 0, 0.48);
+  border-radius: 6px;
+  padding: 14px;
+}
+.home .user__img {
+  position: relative;
+  margin-left: 60px;
+}
+.home .user__img .circle {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(130.68deg, #414141 0%, #2D2D2D 100.52%);
+  font-family: "Arodora Pro";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 41px;
+  border-radius: 45px;
+  text-align: center;
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00C4F0;
+}
+.home .user__img .circle1 {
+  top: 39px;
+}
+.home .user__img .circle2 {
+  top: 188px;
+  left: -53px;
+}
+.home .user__img .circle3 {
+  top: -8px;
+  right: 109px;
+}
+
+header {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 100px;
+  padding-top: 40px;
+}
+header a {
+  position: relative;
+  width: fit-content;
+  font-family: "Arodora Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  color: #E4E4E4;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+}
+header a:hover:after {
+  position: absolute;
+  content: "";
+  top: 20px;
+  width: 100%;
+  height: 2px;
+  background-color: yellow;
+}
+
+.about {
+  background: linear-gradient(130.68deg, #414141 0%, #2D2D2D 100.52%);
+  padding-bottom: 100px;
+}
+.about .stack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about .stack__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 40px;
+  width: 270px;
+  height: 270px;
+  background: #2A2A2A;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.47);
+  border-radius: 29px;
+}
+.about .stack__item p {
+  font-family: "Arodora Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+  display: flex;
+  align-items: center;
+  /* text */
+  color: #E4E4E4;
+}
+.about__text {
+  position: relative;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: left;
+  margin: 0 auto;
+  width: 496px;
+  padding: 64px;
+  font-family: "Arodora Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  z-index: 4;
+  background: #2C2C2C;
+  border-radius: 14px;
+}
+.about__text h2 {
+  width: 100%;
+  text-transform: uppercase;
+}
+.about__text p {
+  margin-top: 30px;
+  font-size: 20px;
+  line-height: 24px;
+}
+.about__text img {
+  position: absolute;
+}
+
+.ellipe {
+  position: absolute;
+  width: 350px;
+  top: 39px;
+  left: -145px;
+}
+
+.portfolio {
+  padding: 100px 0px;
+  background-color: #2A2A2A;
+}
+.portfolio h2 {
+  font-family: "Arodora Pro";
+  justify-content: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 54px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  color: #FFFFFF;
+}
+.portfolio .slider {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+.portfolio .block-slider {
+  width: fit-content;
+  margin: 10px;
+}
+.portfolio .block-slider img {
+  width: 493px;
+  height: 350px;
+  border-radius: 50px;
+  border: 3px solid #00C4F0;
+}
+
+footer {
+  background: linear-gradient(130.68deg, #414141 0%, #2D2D2D 100.52%);
+  height: 238px;
+  font-family: "Arodora Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* text */
+  color: #E4E4E4;
+}
+footer .contact {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 40px;
+}
+footer .contact p {
+  margin: 5px 0px;
+}
+footer .contact img {
+  width: 30px;
+  height: 30px;
+}
+
+/*# sourceMappingURL=index.css.map */
