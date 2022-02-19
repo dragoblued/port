@@ -312,7 +312,7 @@ header a:hover:after {
   width: 493px;
   height: 350px;
   border-radius: 50px;
-  border: 3px solid #00C4F0;
+  border: 1px solid white;
 }
 
 footer {
